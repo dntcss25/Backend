@@ -6,7 +6,6 @@
   "scripts": {
     "test": "1",
     "dev": "node app.js"
-
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,9 @@
     "1"
   ],
   "author": "1",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
+  }
 }

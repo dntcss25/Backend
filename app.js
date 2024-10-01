@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3306;
+const port = 5000;
 
 // Middleware
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',         // XAMPP default user
   password: '',         // Your MySQL root password
-  database: 'activity'  // Database name
+  database: 'sample'  // Database name
 });
 
 db.connect(err => {
