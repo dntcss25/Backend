@@ -1,11 +1,15 @@
 const DataType = require('sequelize');
 const sequelize = require('../utils/database');
 //module.exports = (DataTypes , sequelize) => {
-    const User = sequelize.define('usersInstructors', {
+    const User = sequelize.define('users', {
         _id: {
             type: DataType.INTEGER,
             autoIncrement: true,
             primaryKey: true,
+        },
+        studentNo: {
+            type: DataType.INTEGER,
+            allowNull: true
         },
         firstName: {
             type: DataType.STRING,
@@ -15,11 +19,7 @@ const sequelize = require('../utils/database');
             type: DataType.STRING,
             allowNull: true,
         },
-        subject: {
-            type: DataType.STRING,
-            allowNull: true,
-        },
-        degree: {
+        email: {
             type: DataType.STRING,
             allowNull: true,
         },
@@ -27,16 +27,32 @@ const sequelize = require('../utils/database');
             type: DataType.DATE,
             allowNull: true,
         },
-        email: {
+        gender: {
             type: DataType.STRING,
+            allowNull: true,
+        },
+        address: {
+            type: DataType.STRING,
+            allowNull: true,
+        },
+        citizenship: {
+            type: DataType.STRING,
+            allowNull: true,
+        },
+        avatar: {
+            type: DataType.JSON,
             allowNull: true,
         },
         contact: {
             type: DataType.STRING,
             allowNull: true,
         },
-        avatar: {
-            type: DataType.JSON,
+        civilStatus: {
+            type: DataType.STRING,
+            allowNull: true,
+        },
+        social: {
+            type: DataType.STRING,
             allowNull: true,
         },
         createdAt: {
@@ -51,6 +67,6 @@ const sequelize = require('../utils/database');
         
         
     }, {
-        tableName: 'instructors' 
+        tableName: 'students' 
     });
 module.exports = User;
