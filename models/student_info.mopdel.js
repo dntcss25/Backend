@@ -1,39 +1,54 @@
 const DataType = require('sequelize');
 const sequelize = require('../utils/database');
-//module.exports = (DataTypes , sequelize) => {
-    const StudentInfo = sequelize.define('student_info', {
-        _id: {
-          type: DataType.INTEGER,
-          autoIncrement: true,
-          primaryKey: true,
-        },
-        studentId: {
-          type: DataType.INTEGER,
-          allowNull: true
-        },
-        yearLevel: {
-          type: DataType.INTEGER,
-          allowNull: true
-        },
-        course: {
-          type: DataType.STRING,
-          allowNull: true,
-        },
-        section: {
-          type: DataType.STRING,
-          allowNull: true
-        },
-        instructorId: {
-          type: DataType.INTEGER,
-          allowNull: true,
-        },
-        createdAt: {
-          type: DataType.DATE,
-          allowNull: true
-        },
-        updatedAt: {
-          type: DataType.DATE,
-          allowNull: true,
-        },
-    })
-module.exports = StudentInfo;
+
+const Instructor = sequelize.define('studentinfo', {
+    _id: {
+        type: DataType.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
+    firstName: {
+        type: DataType.STRING,
+        allowNull: true
+    },
+    lastName: {
+        type: DataType.STRING,
+        allowNull: true
+    },
+    subject: {
+        type: DataType.STRING,
+        allowNull: true,
+    },
+    degree: {
+        type: DataType.STRING,
+        allowNull: true,
+    },
+    birthday: {
+        type: DataType.DATE,
+        allowNull: true,
+    },
+    email: {
+        type: DataType.STRING,      
+        allowNull: true,
+    },
+    contact: {
+        type: DataType.INTEGER,
+        allowNull: true,
+    },
+    avatar: {
+        type: DataType.JSON,
+        allowNull: true,
+    },
+    createdAt: {
+        type: DataType.DATE,  
+        allowNull: true,
+    },
+    updatedAt: {
+        type: DataType.DATE, 
+        allowNull: true,
+    },
+}, {
+    tableName: 'studentinfo' 
+});
+
+module.exports = Instructor;

@@ -1,7 +1,7 @@
 const DataType = require('sequelize');
 const sequelize = require('../utils/database');
 //module.exports = (DataTypes , sequelize) => {
-    const User = sequelize.define('users', {
+    const User = sequelize.define('profileusers', {
         _id: {
             type: DataType.INTEGER,
             autoIncrement: true,
@@ -19,5 +19,15 @@ const sequelize = require('../utils/database');
             type: DataType.STRING,
             allowNull: true,
         },
-    })
+        studentId: {
+            type: DataType.INTEGER,
+            allowNull: true,
+        },
+        instructorId: {
+            type: DataType.INTEGER,
+            allowNull: true,
+        },
+    }, {
+        tableName: 'profileusers' 
+    });
 module.exports = User;
