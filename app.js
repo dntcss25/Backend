@@ -1,55 +1,17 @@
 const express = require('express');
-const mysql = require('mysql2');
-const bodyParser = require('body-parser');
-
 const app = express();
-const port = 5000;
+const cors = require('cors');
 
-// Middleware
-app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
 
-// MySQL Database Connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',         // XAMPP default user
-  password: '',         // Your MySQL root password
-  database: 'activity'  // Database name
-});
+const UserRouter = require('./routes/students');
+app.use('/users', UserRouter);
 
-db.connect(err => {
-  if (err) {
-    console.error('Error connecting to MySQL: ', err);
-    return;
-  }
-  console.log('Connected to MySQL');
-});
+const UserRouter1 = require('./routes/instructors');
+app.use('/usersInstructors', UserRouter1);
 
-// Define API Endpoints
-// Get all students
-app.get('/students', (req, res) => {
-  db.query('SELECT * FROM Students', (err, results) => {
-    if (err) throw err;
-    res.json(results);
-  });
-});
+const UserRouter2 = require('./routes/student_info');
+app.use('/usersStudentInfo', UserRouter2);
 
-// Get all student info
-app.get('/student-info', (req, res) => {
-  db.query('SELECT * FROM StudentInfo', (err, results) => {
-    if (err) throw err;
-    res.json(results);
-  });
-});
-
-// Get all instructors
-app.get('/instructors', (req, res) => {
-  db.query('SELECT * FROM Instructors', (err, results) => {
-    if (err) throw err;
-    res.json(results);
-  });
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+app.listen(5000, () => console.log('Server is running at http://127.0.0.1:5000'));
